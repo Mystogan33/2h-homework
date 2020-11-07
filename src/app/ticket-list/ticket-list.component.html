@@ -1,0 +1,12 @@
+<div class="container">
+	<h2>Tickets</h2>
+	<input type="search" placeholder="Search for tickets..." [(ngModel)]="searchQuery" (ngModelChange)="searchForTickets()">
+	<ul>
+		<li *ngFor="let ticket of ticketsList">
+			<a [routerLink]="[ticket?.id]" routerLinkActive="active">{{
+				ticket.description
+			}}</a>
+			<button class="btn-remove" (click)="removeItem(ticket.id)">Supprimer</button>
+		</li>
+	</ul>
+</div>

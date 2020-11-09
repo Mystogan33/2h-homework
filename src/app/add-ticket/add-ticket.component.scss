@@ -1,0 +1,62 @@
+.ticket {
+	background-color: #fff;
+	padding: 3rem;
+	margin-bottom: 3.5rem;
+	position: relative;
+	overflow: hidden;
+	border-radius: 1rem;
+	box-shadow: var(--shadow-light);
+	transition: box-shadow 0.5s;
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
+
+	h2 {
+		font-size: 1.7rem;
+    width: max-content;
+    margin-bottom: 1rem;
+	}
+
+	input:not([type="checkbox"]) {
+		border: none;
+		border-bottom: 1px solid limegreen;
+    padding: 0;
+    outline: none;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: inherit;
+    width: 50%;
+  }
+  
+  .ticket--assignee {
+    border: none;
+    border-bottom: .2rem solid pink;
+    outline: none;
+    font-size: 1.7rem;
+    color: inherit;
+  }
+
+	.btn--validation {
+		margin-top: 3rem;
+		border-radius: 20px;
+		color: white;
+		outline: none;
+		border: none;
+		padding: 1rem;
+		font-weight: bold;
+    font-size: 1.4rem;
+    background-color: var(--color-primary);
+    width: 20%;
+  }
+  
+  &--section {
+    display: flex;
+    align-items: baseline;
+    margin-top: 1rem;
+
+    h2 {
+      margin-right: 1rem;
+    }
+  }
+}

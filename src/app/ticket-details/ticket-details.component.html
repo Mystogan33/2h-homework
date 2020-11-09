@@ -1,6 +1,6 @@
-<div class="ticket">
-  <p>Assignee Id : {{ticket.assigneeId}}</p>
-  <p>Completed: {{ticket.completed}}</p>
-  <p>Id: {{ticket.id}}</p>
-  <p>Description: {{ticket.description}}</p>
+<div *ngIf="isLoading" class="placeholder--loading">Loading data...</div>
+<div class="ticket" *ngIf="!isLoading">
+  <h2>#{{ticket.id}} - {{ticket.description}}</h2>
+  <p>Ticket assigné à : {{ticket.assigneeName}}</p>
+  <p>Status: {{ticket.completed ? 'Traité' : 'Non traité'}}</p>
 </div>

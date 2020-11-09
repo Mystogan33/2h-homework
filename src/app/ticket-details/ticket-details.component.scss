@@ -1,0 +1,27 @@
+.ticket {
+  background-color: #fff;
+	padding: 3rem;
+	margin-bottom: 3.5rem;
+	position: relative;
+	overflow: hidden;
+	border-radius: 1rem;
+	box-shadow: var(--shadow-light);
+  transition: box-shadow 0.5s;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin-left: 1.2rem;
+  }
+}
+
+.placeholder--loading {
+  font-size: 2rem;
+  text-align: center;
+}

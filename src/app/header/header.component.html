@@ -1,0 +1,23 @@
+
+			<header class="header">
+				<div class="logo" routerLink="/tickets">Ticket App</div>
+				<!-- Right panel -->
+				<nav class="user-nav">
+					<div class="user-nav__icon-box" routerLink="/tickets" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a>
+              <svg class="user-nav__icon">
+                <use xlink:href="/assets/sprite.svg#icon-bookmark"></use>
+              </svg>
+            </a>
+						<span class="user-nav__notification">{{ numberOfTickets }}</span>
+					</div>
+					<div class="user-nav__user">
+						<img
+							src="/assets/me.jpg"
+							alt="User photo"
+							class="user-nav__user-photo"
+						/>
+						<span class="user-nav__user-name">Valentin</span>
+					</div>
+				</nav>
+			</header>

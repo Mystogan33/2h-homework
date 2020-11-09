@@ -1,0 +1,42 @@
+<div class="ticket" *ngIf="!isLoading">
+	<div class="ticket--section">
+		<h2>Description du ticket</h2>
+		<input
+			type="text"
+			[(ngModel)]="ticket.description"
+			placeholder="Description du ticket...."
+		/>
+	</div>
+	<div class="ticket--section">
+		<h2>Ticket assigné à</h2>
+		<select
+			name="assignee"
+			id="assignee-select"
+			class="ticket--assignee"
+			[(ngModel)]="ticket.assigneeId"
+			[value]="ticket.assigneeId"
+		>
+			<option class="ticket--assignee__option" value="">
+				--Please choose an option--
+			</option>
+			<option
+				*ngFor="let user of listOfUsers"
+				[value]="user.id"
+				class="ticket--assignee__option"
+			>
+				{{ user.name }}
+			</option>
+		</select>
+	</div>
+	<div class="ticket--section">
+		<h2>Statut</h2>
+		<input
+			type="checkbox"
+			[(ngModel)]="ticket.completed"
+			[value]="ticket.completed"
+		/>
+	</div>
+	<button type="button" (click)="handleSubmit()" class="btn--validation">
+		{{ isEditMode ? "Valider" : "Créer" }}
+	</button>
+</div>

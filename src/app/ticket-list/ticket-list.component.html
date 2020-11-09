@@ -1,12 +1,32 @@
 <div class="container">
-	<h2>Tickets</h2>
-	<input type="search" placeholder="Search for tickets..." [(ngModel)]="searchQuery" (ngModelChange)="searchForTickets()">
-	<ul>
-		<li *ngFor="let ticket of ticketsList">
-			<a [routerLink]="[ticket?.id]" routerLinkActive="active">{{
-				ticket.description
-			}}</a>
-			<button class="btn-remove" (click)="removeItem(ticket.id)">Supprimer</button>
+	<div class="ticket-list--header">
+		<h2 class="ticket-list--header__title">Liste des tickets</h2>
+		<input
+			type="search"
+			placeholder="Search for tickets..."
+			[(ngModel)]="searchQuery"
+			(ngModelChange)="searchForTickets()"
+			class="search-input"
+		/>
+	</div>
+	<div *ngIf="isLoading" class="placeholder--loading">Loading data...</div>
+	<ul *ngIf="!isLoading">
+		<li *ngFor="let ticket of filteredList" [routerLink]="[ticket?.id]">
+			<a>
+				<p>#{{ ticket.id }} - {{ ticket.description }}</p>
+				<svg class="ticket__icon">
+					<use xlink:href="/assets/sprite.svg#icon-chevron-thin-right"></use>
+				</svg>
+			</a>
+			<div class="btn--actions">
+				<button class="btn-modify" [routerLink]="[ticket?.id, 'edit']">
+					Modifier
+				</button>
+				<button class="btn-remove" (click)="removeItem(ticket.id)">
+					Supprimer
+				</button>
+			</div>
 		</li>
+		<li routerLink="new"><a>Ajouter un ticket</a></li>
 	</ul>
 </div>

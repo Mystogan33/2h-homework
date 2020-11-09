@@ -1,28 +1,16 @@
-header {
-  width: 100%;
-  background-color: blue;
-  padding: 1rem;
-  color: white;
+.container {
+	max-width: 120rem;
+	margin: 8rem auto;
+	background-color: var(--color-grey-light-2);
+	box-shadow: var(--shadow-dark);
+	position: relative;
+  min-height: 50rem;
+  border-radius: .4rem;
+  overflow: hidden;
 
-  display: flex;
-  align-items: center;
-}
-
-nav {
-  margin-left: 2rem;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-}
-
-li:not(:last-child) {
-  margin-right: 1rem;
-  font-size: 1.5rem;
-}
-
-li a {
-  color: white;
-  text-decoration: none;
+	@media only screen and (max-width: $bp-largest) {
+		margin: 0;
+		max-width: 100%;
+		width: 100%;
+	}
 }

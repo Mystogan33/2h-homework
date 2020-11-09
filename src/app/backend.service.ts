@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
 import { Ticket } from '../interfaces/ticket.interface';
 import { User } from '../interfaces/user.interface';
@@ -31,7 +31,7 @@ export class BackendService {
     ];
 
     public storedUsers: User[] = [{ id: 111, name: 'Victor' }];
-
+    public storedTickets$ = new BehaviorSubject<Ticket[]>(this.storedTickets);
     private lastId: number = 1;
 
     private findUserById = id => this.storedUsers.find((user: User) => user.id === +id);
@@ -63,7 +63,8 @@ export class BackendService {
 
         return of(newTicket).pipe(
             delay(randomDelay()),
-            tap((ticket: Ticket) => this.storedTickets.push(ticket))
+            tap(ticket => this.storedTickets.push(ticket)),
+            tap(() => this.storedTickets$.next(this.storedTickets))
         );
     }
 

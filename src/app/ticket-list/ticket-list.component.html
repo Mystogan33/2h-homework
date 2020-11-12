@@ -1,4 +1,4 @@
-<div class="container">
+<div class="ticket-list--container">
 	<div class="ticket-list--header">
 		<h2 class="ticket-list--header__title">Liste des tickets</h2>
 		<input
@@ -12,20 +12,7 @@
 	<div *ngIf="isLoading" class="placeholder--loading">Loading data...</div>
 	<ul *ngIf="!isLoading">
 		<li *ngFor="let ticket of filteredList" [routerLink]="[ticket?.id]">
-			<a>
-				<p>#{{ ticket.id }} - {{ ticket.description }}</p>
-				<svg class="ticket__icon">
-					<use xlink:href="/assets/sprite.svg#icon-chevron-thin-right"></use>
-				</svg>
-			</a>
-			<div class="btn--actions">
-				<button class="btn-modify" [routerLink]="[ticket?.id, 'edit']">
-					Modifier
-				</button>
-				<button class="btn-remove" (click)="removeItem(ticket.id)">
-					Supprimer
-				</button>
-			</div>
+			<app-ticket [ticket]="ticket" (onRemove)="removeItem(ticket.id)"></app-ticket>
 		</li>
 		<li routerLink="new"><a>Ajouter un ticket</a></li>
 	</ul>

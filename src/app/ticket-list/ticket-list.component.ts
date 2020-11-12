@@ -8,7 +8,7 @@ import { BackendService } from '../backend.service';
 @Component({
   selector: 'app-ticket-list',
   templateUrl: './ticket-list.component.html',
-  styleUrls: ['./ticket-list.component.css']
+  styleUrls: ['./ticket-list.component.scss']
 })
 export class TicketListComponent implements OnInit {
   public searchQuery = '';
